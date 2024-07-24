@@ -1,7 +1,7 @@
 ## MorPheT
 An end-to-end framework for cell morphology phenotyping
 
-<img width="600" alt="MorPheT" src="./data/imgs/Main_Fig_1.png">
+<img alt="MorPheT" src="./data/imgs/Main_Fig_1.png">
 
 ## Installation
 The anaconda environment for MorPheT can be installed using environment.yml.
@@ -31,7 +31,12 @@ git clone --recurse-submodules -j8 git@github.com:chunglabmit/morphet.git
 # to launch,
 $ make launch.morphet.x
 ```
-<img width="600" alt="MorPheT GUI" src="./data/imgs/MorPheT.png">
+<img alt="MorPheT GUI" src="./data/imgs/MorPheT.png">
+
+#### Data Annotator within MorPheT
+https://github.com/user-attachments/assets/8c4b603d-ca7a-4e78-83ad-8034857b4b49
+
+
 
 #### Stand-alone Data Annotator GUI
 ```shell
@@ -56,4 +61,7 @@ $ make launch.evaluator.x
 # to launch,
 $ make launch.predictor.x
 ```
-<img width="600" alt="Prediction Viewer" src="./data/imgs/prediction_viewer.png">
+
+https://github.com/user-attachments/assets/fbc503f1-906a-44e9-b8b5-58506c2a4830
+
+
