@@ -1,0 +1,13 @@
+**/*.pyc
+**/*_bak
+**/*swp
+**/.ipynb_checkpoints/*
+**/notebook/*.log
+.pytest_cache/*
+src/train/logs*
+src/_3rdparty
+src/_2ndparty
+src/gui/MorPheT/images
+src/train/weights/
+
+ATLAS/

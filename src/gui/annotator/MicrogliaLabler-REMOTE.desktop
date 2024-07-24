@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MicrogliaLabeler
+Comment=
+Exec=gnome-terminal --execute bash -c "make launch.annotator.remote; bash"
+Icon=/home/mykim/bm/src/gui/images/microglialcell.png
+Path=/home/mykim/bm
+Terminal=false
+StartupNotify=false

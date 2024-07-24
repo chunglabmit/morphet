@@ -1,0 +1,6 @@
+{
+    "atlas_dir": "/media/share5/MYK/ATLAS/mouse",
+    "snapshot_dir": "./snapshots",
+    "pjson": "params.json",
+    "mpjson": "./models/models.json"
+}
