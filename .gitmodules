@@ -1,9 +1,9 @@
-[submodule "src/_2ndparty/nuggt"]
-	path = src/_2ndparty/nuggt
-	url = https://github.com/chunglabmit/nuggt
-[submodule "src/_2ndparty/phathom"]
-	path = src/_2ndparty/phathom
+[submodule "src/_2nd_party/phathom"]
+	path = src/_2nd_party/phathom
 	url = git@github.com:chunglabmit/phathom.git
-[submodule "src/_3rd_party/Probabilistic_Unet_Pytorch"]
-	path = src/_3rd_party/Probabilistic_Unet_Pytorch
+[submodule "src/_2nd_party/nuggt"]
+	path = src/_2nd_party/nuggt
+	url = https://github.com/chunglabmit/nuggt
+[submodule "src/_3rd_party/Probabilistic-Unet-Pytorch"]
+	path = src/_3rd_party/Probabilistic-Unet-Pytorch
 	url = https://github.com/stefanknegt/Probabilistic-Unet-Pytorch.git
