@@ -8,11 +8,21 @@ The anaconda environment for MorPheT can be installed using environment.yml.
 ```
 conda env create -f environment.yml
 ```
+* If above command fails:
+  1. Create conda
+    ```
+    conda create -n morphet python=3.7
+    ```
+  2. Enter env
+  ```
+  conda activate morphet
+  ``` 
 
 Install required packages:
 ```
 make setup.env.x
 ```
+
 
 Other required packages (defined under .gitmodules):
 ```
