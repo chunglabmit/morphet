@@ -17,5 +17,8 @@ pip install -r requirements.txt
 # install pytorch and opencv
 #----------------------------
 conda install pytorch torchvision cudatoolkit=11.6 -c pytorch
-#conda install python=3.7
-conda install -c menpo opencv
+pip install opencv-python
+
+# install SimpleITK
+conda install -c https://conda.anaconda.org/simpleitk SimpleITK
+

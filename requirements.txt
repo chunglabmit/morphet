@@ -14,7 +14,7 @@ Cython
 requests
 itkwidgets
 itk-io
-sklearn
+scikit-learn
 vispy
 msgpack
 argparse
@@ -27,7 +27,6 @@ qdarkstyle
 dask
 toolz
 imagesize
-SimpleITK
 scikit-image
 protobuf
 tqdm
