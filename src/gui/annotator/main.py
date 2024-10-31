@@ -6,7 +6,7 @@ from datetime import datetime
 from itertools import cycle
 
 # UI
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 import qdarkstyle
 import vispy.app
 #from pyqtgraph.Qt import QtCore, QtGui
@@ -398,7 +398,7 @@ class ATApp(QtGui.QMainWindow, ATUI.Ui_MainWindow):
 
             self.log("loading batch No [ %d ]..."%val, PRT.STATUS)
 
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
         while True:
             current_bIdx, current_batch = self.rawdata.get_a_batch()
             if not batchno:
@@ -538,7 +538,7 @@ class ATApp(QtGui.QMainWindow, ATUI.Ui_MainWindow):
         # show on logWindow
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def _print(self):
@@ -555,7 +555,7 @@ if __name__ == "__main__":
 #        print("Usage: python main.py [DATA_SET]")
 #        sys.exit(1)
     dataset = args[-1]
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     ata = ATApp(phase=dataset)
     ata.show()

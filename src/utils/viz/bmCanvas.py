@@ -10,9 +10,9 @@ import sys
 import os.path
 from itertools import cycle
 if sys.version_info >= (3,0):
-    from PyQt5 import QtGui
+    from PyQt5 import QtGui, QtWidgets
 else:
-    from PyQt4 import QtGui
+    from PyQt4 import QtGui, QtWidgets
 import numpy as np
 import vispy
 from vispy import app, scene
@@ -288,7 +288,7 @@ class BMCanvas(scene.SceneCanvas):
 
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def toggle_marker(self, key, isOverlayMarker=False):

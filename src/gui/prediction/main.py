@@ -12,7 +12,7 @@ from copy import deepcopy
 
 # UI
 import qdarkstyle
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 from qrangeslider import QRangeSlider
 from pyqtgraph.widgets.MatplotlibWidget import MatplotlibWidget
 from pyqtgraph.Qt import QtCore
@@ -927,7 +927,7 @@ class PredictionApp(QtGui.QMainWindow, PTUI.Ui_MainWindow):
 
             self.log("loading batch No [ %d ]..."%val, PRT.STATUS)
 
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
         while True:
             current_bIdx, current_batch = self.rawdata.get_a_batch()
             if not batchno:
@@ -1062,7 +1062,7 @@ class PredictionApp(QtGui.QMainWindow, PTUI.Ui_MainWindow):
         # show on logWindow
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def _print(self):
@@ -1101,7 +1101,7 @@ class PredictionApp(QtGui.QMainWindow, PTUI.Ui_MainWindow):
 
 if __name__ == "__main__":
     args = sys.argv
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     app.setStyle("fusion");
 #    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     ifa = PredictionApp()

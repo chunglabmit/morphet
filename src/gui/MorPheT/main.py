@@ -1674,8 +1674,8 @@ class MorPheTApp(QtWidgets.QMainWindow, CUI.Ui_MorPheT):
         params['owner'] = self.ledit_owner.text()
         params['voxel_size'] = [ float(self.ledit_vz.text()), float(self.ledit_vy.text()),
                                  float(self.ledit_vx.text()) ]
-        params['zarr_chunk_size'] = [ float(self.ledit_zz.text()), float(self.ledit_zy.text()),
-                                 float(self.ledit_zx.text()) ]
+        params['zarr_chunk_size'] = [ int(self.ledit_zz.text()), int(self.ledit_zy.text()),
+                                 int(self.ledit_zx.text()) ]
         params['xr'] = [0, dw]
         params['yr'] = [0, dh]
         params['zr'] = [int(dd/2-5), int(dd/2+5)]

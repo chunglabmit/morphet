@@ -16,7 +16,7 @@ import json
 import pandas as pd
 from tqdm import tqdm
 from glob import glob
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 from dask.array.image import imread as dimread
 import tifffile
 import imagesize
@@ -375,7 +375,7 @@ class BMAligner(object):
 
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def update_progressbar(self, pbar, at, total):

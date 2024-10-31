@@ -18,7 +18,7 @@ try:
 except:
     sys.exit("Python >= 3.5 is required!")
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 
 import os
 import matplotlib.pyplot as plt
@@ -107,7 +107,7 @@ class BM_CCD(object):
 
         val = np.ceil(float(at)/float(total)) * 100.
         pbar.setValue(val)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def log(self, msg, flag=PRT.LOG):
@@ -118,7 +118,7 @@ class BM_CCD(object):
 
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def update_cell_centers_file(self, cc_npy):

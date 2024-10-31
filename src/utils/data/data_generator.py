@@ -27,7 +27,7 @@ from tqdm import tqdm
 from dask.array.image import imread as dimread
 from argparse import Namespace
 
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 from phathom import io
 
 # internal
@@ -524,9 +524,12 @@ class DataGenerator(object):
 
         images = []
         for i in range(zs, ze):
-            img = cv2.imread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
-            #img = dimread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
-            images.append(img)
+            try:
+                img = cv2.imread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
+                #img = dimread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
+                images.append(img)
+            except IndexError e:
+                print("zs: %d, ze: %d, i: %d"%(zs, ze, i))
 
         images = np.array(images, dtype=np.float32)
         return images
@@ -836,7 +839,7 @@ class DataGenerator(object):
 
         val = math.ceil(float(at)/float(total) * 100.)
         self.pbar.setValue(val)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def log(self, msg, flag=PRT.LOG):
@@ -847,4 +850,4 @@ class DataGenerator(object):
 
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()

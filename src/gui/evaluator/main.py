@@ -22,7 +22,7 @@ from tabulate import tabulate
 
 
 # UI
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 import qdarkstyle
 from pyqtgraph.widgets.MatplotlibWidget import MatplotlibWidget
 from matplotlib.backends.qt_compat import QtCore, QtWidgets, is_pyqt5
@@ -402,7 +402,7 @@ class EvaluatorApp(QtGui.QMainWindow, EUI.Ui_MainWindow):
         filename = "screenshot_{}.png".format(bmUtil.get_current_time())
         fpath = os.path.join(self.screenshot_dir, filename)
         self.log("Saving a screenshot to %s"%fpath, PRT.LOG)
-        p = QtGui.QScreen.grabWindow(QtGui.QApplication.primaryScreen(), self.winId())
+        p = QtGui.QScreen.grabWindow(QtWidgets.QApplication.primaryScreen(), self.winId())
         p.save(fpath)
         self.log("Saving a screenshot to %s (Done)"%fpath, PRT.STATUS)
 
@@ -1054,7 +1054,7 @@ class EvaluatorApp(QtGui.QMainWindow, EUI.Ui_MainWindow):
     def update_progressbar(bar, at, total):
         val = math.ceil(float(at)/float(total) * 100.)
         bar.setValue(val)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def infer(self, phase=Phase.TRAIN, sampler=False, max_iter=None, save=False):
@@ -1251,7 +1251,7 @@ class EvaluatorApp(QtGui.QMainWindow, EUI.Ui_MainWindow):
         # show on logWindow
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def _print(self):
@@ -1259,7 +1259,7 @@ class EvaluatorApp(QtGui.QMainWindow, EUI.Ui_MainWindow):
 
 
 if __name__ == "__main__":
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
 #    app.use('glfw')
 #    app.setStyle("fusion")
 #    if len(sys.argv) != 2:

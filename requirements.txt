@@ -38,3 +38,4 @@ pytest
 pyqt5==5.15.7
 pyqtgraph
 pyqtwebengine
+imagecodecs

@@ -447,7 +447,7 @@ class AnnotationApp():
 
             self.log("loading batch No [ %d ]..."%val, PRT.STATUS)
 
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
         while True:
             current_bIdx, current_batch = self.rawdata.get_a_batch()
             if not batchno:
@@ -597,7 +597,7 @@ class AnnotationApp():
         # show on logWindow
         self.app.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.app.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def load_XYPlane(self):

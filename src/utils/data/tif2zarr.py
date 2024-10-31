@@ -28,9 +28,9 @@ from tqdm import tqdm
 import math
 
 if sys.version_info >= (3,0):
-    from PyQt5 import QtGui
+    from PyQt5 import QtGui, QtWidgets
 else:
-    from PyQt4 import QtGui
+    from PyQt4 import QtGui, QtWidgets
 
 # phathom
 from phathom import io
@@ -70,7 +70,7 @@ class Tif2Zarr(object):
         self.tiffpath = os.path.join(self.data_root, self.pByChn.tif_rel_path)
         self.zarrpath = os.path.join(self.data_root, self.pByChn.zarr_rel_path)
         self.vol_size = (self.p.dd, self.p.dh, self.p.dw)
-        self.chunk_size = p.chunk_size
+        self.chunk_size = self.p.zarr_chunk_size
 
         # GUI
         self.logwin = logWindow
@@ -170,7 +170,7 @@ class Tif2Zarr(object):
 
         val = math.ceil(float(at)/float(total) * 100.)
         self.pbar.setValue(val)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def log(self, msg, flag=PRT.LOG):
@@ -181,7 +181,7 @@ class Tif2Zarr(object):
 
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
 
