@@ -10,3 +10,6 @@
 [submodule "src/_3rd_party/py-lapsolver"]
 	path = src/_3rd_party/py-lapsolver
 	url = https://github.com/cheind/py-lapsolver.git
+[submodule "src/_2nd_party/mp_shared_memory"]
+	path = src/_2nd_party/mp_shared_memory
+	url = https://github.com/chunglabmit/mp_shared_memory.git

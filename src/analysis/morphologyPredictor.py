@@ -6,9 +6,7 @@ __maintainer__ = "Minyoung Kim"
 __email__ = "minykim@mit.edu"
 __date__ = "10/17/2018"
 import sys
-sys.path.append("/home/mykim/cbm/src")
-sys.path.append("/home/mykim/cbm/src/train")
-sys.path.append("/home/mykim/cbm/src/analysis")
+sys.path.append("../../")
 import os
 import warnings
 warnings.filterwarnings("always")
@@ -41,7 +39,6 @@ import utils.util as bmUtil
 from utils.train.preprocessor import TrainPreprocessor
 from train.trainer import Trainer
 from train.mTrainer import MTrainer
-from train.trapTrainer import TRAPTrainer
 from train.bfmcTrainer import BFMCTrainer
 from analysis.baseAnalyzer import BaseAnalyzer
 from analysis.unsupervisedLearner import BMClustering
@@ -256,8 +253,6 @@ class MorphologyPredictor(BaseAnalyzer):
             self.predictor = Trainer("BMTR-MP", self.trParams, self.mdb)
         elif model_type == ModelType.BFMC:
             self.predictor = BFMCTrainer(name="BFMC-MP", params=self.trParams, dataset=self.mdb)
-        elif model_type == ModelType.TRAP:
-            self.predictor = TRAPTrainer(name="TRAP-MP", params=self.trParams, dataset=self.mdb)
         elif model_type == ModelType.ALTR:
             self.predictor = MTrainer(name="ALTR", params=self.trParams, dataset=self.mdb)
         elif model_type == ModelType.KMNS:
