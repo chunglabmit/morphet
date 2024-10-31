@@ -7,3 +7,6 @@
 [submodule "src/_3rd_party/Probabilistic-Unet-Pytorch"]
 	path = src/_3rd_party/Probabilistic-Unet-Pytorch
 	url = https://github.com/stefanknegt/Probabilistic-Unet-Pytorch.git
+[submodule "src/_3rd_party/py-lapsolver"]
+	path = src/_3rd_party/py-lapsolver
+	url = https://github.com/cheind/py-lapsolver.git

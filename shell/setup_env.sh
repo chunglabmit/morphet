@@ -10,14 +10,14 @@
 #ROOT=`pwd`
 #echo "ROOT: ${ROOT}"
 
+pip install numpy
 # install required packages with pip
-pip install -r requirements.txt
+pip install -r requirements.txt --no-cache-dir
 
 #----------------------------
 # install pytorch and opencv
 #----------------------------
-conda install pytorch torchvision cudatoolkit=11.6 -c pytorch
-pip install opencv-python
+pip3 install torch torchvision torchaudio opencv-python
 
 # install SimpleITK
 conda install -c https://conda.anaconda.org/simpleitk SimpleITK
