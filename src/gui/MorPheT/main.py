@@ -53,13 +53,13 @@ from vispy.color import get_colormaps, BaseColormap
 
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
-from matplotlib.backends.qt_compat import is_pyqt5
-if is_pyqt5():
-    from matplotlib.backends.backend_qt5agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-else:
-    from matplotlib.backends.backend_qt4agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+#from matplotlib.backends.qt_compat import is_pyqt5
+#if is_pyqt5():
+from matplotlib.backends.backend_qt5agg import (
+    FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+#else:
+#    from matplotlib.backends.backend_qt4agg import (
+#        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 
 
 # torch
@@ -134,7 +134,7 @@ class Objectives(object):
           }
 
 
-class ImageWindow(QtGui.QDialog):
+class ImageWindow(QtWidgets.QDialog):
     def __init__(self, widget, parent=None):
         super(ImageWindow, self).__init__(parent)
 
@@ -219,18 +219,18 @@ class ImageWindow(QtGui.QDialog):
 
 
 
-class TextDialog(QtGui.QDialog):
+class TextDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super(TextDialog, self).__init__(parent)
 
         self.setupUi()
 
     def setupUi(self):
-        self.buttonBox = QtGui.QDialogButtonBox(self)
+        self.buttonBox = QtWidgets.QDialogButtonBox(self)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
-        self.textBrowser = QtGui.QTextBrowser(self)
-        self.verticalLayout = QtGui.QVBoxLayout(self)
+        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
+        self.textBrowser = QtWidgets.QTextBrowser(self)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self)
         self.verticalLayout.addWidget(self.textBrowser)
         self.verticalLayout.addWidget(self.buttonBox)
 
@@ -245,10 +245,10 @@ class TextDialog(QtGui.QDialog):
         self.textBrowser.setText(t)
         self.resize(QtCore.QSize(500, 700))
 #        w.setStyleSheet('color: blue')
-#        w.setFont(QtGui.QFont("Monospace"))
-#        w.setWordWrapMode(QtGui.QTextOption.NoWrap)
+#        w.setFont(QtWidgets.QFont("Monospace"))
+#        w.setWordWrapMode(QtWidgets.QTextOption.NoWrap)
 
-class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
+class MorPheTApp(QtWidgets.QMainWindow, CUI.Ui_MorPheT):
     BM_CANVAS_NO = 0
 
     def __init__(self, **args):
@@ -381,12 +381,12 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
                 usv_idx += 1
 
             tblObj.insertRow(idx)
-            tblObj.setItem(idx, 0, QtGui.QTableWidgetItem(key))
-            tblObj.setItem(idx, 1, QtGui.QTableWidgetItem(m['net_type']))
-            tblObj.setItem(idx, 2, QtGui.QTableWidgetItem(m['train_data']))
-            tblObj.setItem(idx, 3, QtGui.QTableWidgetItem(str(m['num_class'])))
-            tblObj.setItem(idx, 4, QtGui.QTableWidgetItem(str(m['version'])))
-            tblObj.setItem(idx, 5, QtGui.QTableWidgetItem(m['model_file']))
+            tblObj.setItem(idx, 0, QtWidgets.QTableWidgetItem(key))
+            tblObj.setItem(idx, 1, QtWidgets.QTableWidgetItem(m['net_type']))
+            tblObj.setItem(idx, 2, QtWidgets.QTableWidgetItem(m['train_data']))
+            tblObj.setItem(idx, 3, QtWidgets.QTableWidgetItem(str(m['num_class'])))
+            tblObj.setItem(idx, 4, QtWidgets.QTableWidgetItem(str(m['version'])))
+            tblObj.setItem(idx, 5, QtWidgets.QTableWidgetItem(m['model_file']))
             tblObj.resizeColumnsToContents()
 
 
@@ -436,8 +436,8 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         self.tblURLs.clicked.connect(self.WEB_on_url_selected)
 
         # User Input related
-        self.flayout = QtGui.QFormLayout()
-        self.leUrlText = QtGui.QLineEdit()
+        self.flayout = QtWidgets.QFormLayout()
+        self.leUrlText = QtWidgets.QLineEdit()
 #        self.flayout.addRow(self.btnUrlAdd, self.leUrlText)
         self.flayout.addRow(self.leUrlText)
         self.btnUrlAdd.clicked.connect(self.get_url_from_user)
@@ -794,7 +794,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
 
 
     def get_url_from_user(self):
-        text, ok = QtGui.QInputDialog.getText(self, "URL from User", "Enter URL")
+        text, ok = QtWidgets.QInputDialog.getText(self, "URL from User", "Enter URL")
 
         if ok:
             self.insert_url_to_table(text)
@@ -803,7 +803,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
     def insert_url_to_table(self, u):
         row_idx = self.tblURLs.rowCount()
         self.tblURLs.insertRow(row_idx)
-        self.tblURLs.setItem(row_idx, 0, QtGui.QTableWidgetItem(u))
+        self.tblURLs.setItem(row_idx, 0, QtWidgets.QTableWidgetItem(u))
 
 
     def delete_url_from_table(self):
@@ -1035,7 +1035,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
                     txt += "."
                 self.btnAlign.setText(txt)
                 cnt += 1
-                QtGui.QApplication.processEvents()
+                QtWidgets.QApplication.processEvents()
                 time.sleep(2)
 
         # 2. Rescale Coordinates back to original
@@ -1554,7 +1554,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
     def update_progressbar(self, pbar, at, total):
         val = np.ceil(float(at)/float(total) * 100.)
         pbar.setValue(val)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def generate_zarr(self):
@@ -1698,7 +1698,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         row = item.row()
         vidx = int(row%2)
         url = self.tblURLs.item(row, 0).text()
-        QtGui.QApplication.clipboard().setText(url)
+        QtWidgets.QApplication.clipboard().setText(url)
         self.log("Loading & Copy URL: %s"%url, PRT.STATUS)
         url = QUrl.fromUserInput(url)
         if not url.isValid():
@@ -1714,7 +1714,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         ledit, ledit_action = self.user_params[p]
         self.pre_params[p] = ledit.text()
         if ledit_action is None:
-            self.user_params[p][1] = ledit.addAction(self.checkIcon, QtGui.QLineEdit.TrailingPosition)
+            self.user_params[p][1] = ledit.addAction(self.checkIcon, QtWidgets.QLineEdit.TrailingPosition)
             self.user_params[p][1].triggered.connect(lambda:self.reset_param(ledit))
 
         # disable LineEdit
@@ -1810,7 +1810,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         for key in self.user_params:
             if self.user_params[key][0] == ledit:
                 if self.user_params[key][1] is not None:
-                    QtGui.QLineEdit.removeAction(ledit, self.user_params[key][1])
+                    QtWidgets.QLineEdit.removeAction(ledit, self.user_params[key][1])
                     self.user_params[key][1] = None
 
 
@@ -1901,8 +1901,8 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
     def on_data_directory_selected(self, caller=None):
         """connect with menubar's Load option"""
 
-        new_data_root = str(QtGui.QFileDialog.getExistingDirectory(None, 'Select a folder:', self.data_root,
-                                                                   QtGui.QFileDialog.ShowDirsOnly))
+        new_data_root = str(QtWidgets.QFileDialog.getExistingDirectory(None, 'Select a folder:', self.data_root,
+                                                                   QtWidgets.QFileDialog.ShowDirsOnly))
         if new_data_root == "":
             self.log("cancelled.")
             return
@@ -2417,7 +2417,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         df_child = self.mAtlas.df[self.mAtlas.df['parent_structure_id'] == pid]
         for index, row in df_child.iterrows():
             nid = row['id']
-            node = QtGui.QTreeWidgetItem(parent)
+            node = QtWidgets.QTreeWidgetItem(parent)
             node.setText(0, "%s"%(row['acronym']))
             node.setText(1, "%d"%(nid))
             node.setFlags(node.flags() | QtCore.Qt.ItemIsUserCheckable)
@@ -2535,7 +2535,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
         # show on logWindow
         self.logwin.append(PRT.html(self.__class__.__name__, msg, flag))
         self.logwin.moveCursor(QtGui.QTextCursor.End)
-        QtGui.QApplication.processEvents()
+        QtWidgets.QApplication.processEvents()
 
 
     def _print(self):
@@ -2694,7 +2694,7 @@ class MorPheTApp(QtGui.QMainWindow, CUI.Ui_MorPheT):
 if __name__ == "__main__":
 #    multiprocessing.set_start_method('spawn', force=True)
     args = sys.argv
-    app = QtGui.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
 #    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     ifa = MorPheTApp()
     ifa.setup()

@@ -16,16 +16,16 @@ from functools import partial
 import pandas as pd
 
 # UI
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 #from pyqtgraph.widgets.MatplotlibWidget import MatplotlibWidget
-from matplotlib.backends.qt_compat import is_pyqt5
 from matplotlib.figure import Figure
-if is_pyqt5():
-    from matplotlib.backends.backend_qt5agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-else:
-    from matplotlib.backends.backend_qt4agg import (
-        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+#from matplotlib.backends.qt_compat import is_pyqt5
+#if is_pyqt5():
+#    from matplotlib.backends.backend_qt5agg import (
+#        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
+#else:
+#    from matplotlib.backends.backend_qt4agg import (
+#        FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
 
 from itertools import cycle
 
@@ -94,10 +94,10 @@ class EvaluatorApp():
             self.cw_grv4 = int(self.app.grView3.frameGeometry().width() * 0.87)
             self.ch_grv4 = int(self.app.grView3.frameGeometry().height() * 0.92)
 
-            self.plot1 = QtGui.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
-            self.plot2 = QtGui.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
-            self.plot3 = QtGui.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
-            self.plot4 = QtGui.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
+            self.plot1 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
+            self.plot2 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
+            self.plot3 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
+            self.plot4 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
         else:
             self.plot1.clear()
             self.plot2.clear()
@@ -265,7 +265,7 @@ class EvaluatorApp():
         fcanvas = FigureCanvas(fig)
 
         fcanvas.setGeometry(2, 2, self.cw_grv3, self.ch_grv3)
-        self.plot3 = QtGui.QGraphicsScene(0, 0, self.cw_grv3, self.ch_grv3)
+        self.plot3 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv3, self.ch_grv3)
         self.plot3.addWidget(fcanvas)
         self.app.grView3.setScene(self.plot3)
 
@@ -306,7 +306,7 @@ class EvaluatorApp():
         #fcanvas = FigureCanvas(plt.gcf())
         fcanvas = FigureCanvas(fig)
         fcanvas.setGeometry(2, 2, self.cw_grv4, self.ch_grv4)
-        self.plot4 = QtGui.QGraphicsScene(0, 0, self.cw_grv4, self.ch_grv4)
+        self.plot4 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv4, self.ch_grv4)
         self.plot4.addWidget(fcanvas)
         self.app.grView4.setScene(self.plot4)
 
@@ -320,7 +320,7 @@ class EvaluatorApp():
         fcanvas = FigureCanvas(fig)
         fcanvas.setGeometry(2, 2, self.cw_grv1, self.ch_grv1)
 
-        self.plot1 = QtGui.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
+        self.plot1 = QtWidgets.QGraphicsScene(0, 0, self.cw_grv1, self.ch_grv1)
         self.plot1.addWidget(fcanvas)
         self.app.grView1.setScene(self.plot1)
 

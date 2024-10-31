@@ -17,7 +17,6 @@ from utils.data.dataset import MicrogliaDataset, TrapDataset
 from utils.train.preprocessor import TrainPreprocessor
 from train.trainer import Trainer
 from train.bfmcTrainer import BFMCTrainer
-from train.trapTrainer import TRAPTrainer
 from train.mTrainer import MTrainer
 from utils.const import Dataset, ModelType
 from torchvision import datasets, transforms
@@ -93,8 +92,6 @@ def build_trainer(trParams, db):
         trainer = Trainer(name="BMTR", params=trParams, dataset=db)
     elif trParams.model_type == ModelType.BFMC:
         trainer = BFMCTrainer(name="BFMC", params=trParams, dataset=db)
-    elif trParams.model_type == ModelType.TRAP:
-        trainer = TRAPTrainer(name="TRAP", params=trParams, dataset=db)
     elif trParams.model_type == ModelType.ALTR:
         trainer = MTrainer(name="ALTR", params=trParams, dataset=db)
     else:

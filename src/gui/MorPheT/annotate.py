@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 # UI
-from PyQt5 import QtGui
+from PyQt5 import QtGui, QtWidgets
 
 import vispy.app
 from pyqtgraph.Qt import QtCore
@@ -33,11 +33,11 @@ from utils.data.dbLabel import MDBLabel, TDBLabel
 
 
 
-class ItemDelegate(QtGui.QStyledItemDelegate):
+class ItemDelegate(QtWidgets.QStyledItemDelegate):
     """customized ItemDelegaet for ListWidget, where icon resides right side of the item"""
 
     def paint(self, painter, option, index):
-        option.decorationPosition = QtGui.QStyleOptionViewItem.Right
+        option.decorationPosition = QtWidgets.QStyleOptionViewItem.Right
         super(ItemDelegate, self).paint(painter, option, index)
 
 

@@ -17,8 +17,13 @@ pip install -r requirements.txt --no-cache-dir
 #----------------------------
 # install pytorch and opencv
 #----------------------------
-pip3 install torch torchvision torchaudio opencv-python
+pip3 install torch torchvision torchaudio
+pip install opencv-python-headless
+
 
 # install SimpleITK
 conda install -c https://conda.anaconda.org/simpleitk SimpleITK
 
+# install precomputed-tif
+pip install https://github.com/chunglabmit/blockfs/archive/master.zip
+pip install https://github.com/chunglabmit/precomputed-tif/archive/master.zip
