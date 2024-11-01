@@ -528,7 +528,8 @@ class DataGenerator(object):
                 img = cv2.imread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
                 #img = dimread(files[i], -1)[:h, :w]  # crop if out of bound in x, y-axis
                 images.append(img)
-            except IndexError e:
+            except IndexError as e:
+                print("e: {}".format(e))
                 print("zs: %d, ze: %d, i: %d"%(zs, ze, i))
 
         images = np.array(images, dtype=np.float32)

@@ -410,8 +410,6 @@ class BM_CCD(object):
             phaUtil.insert_box(prob_output, start_coord, stop_coord, prob_valid)
 
         centers_local = nuclei_centers_probability2(prob, threshold=prob_thresh, min_dist=min_dist)
-        print("len(centers_local): ", len(centers_local))
-
         if centers_local.size == 0:
             return None
 
